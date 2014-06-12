@@ -23,62 +23,27 @@
         android:textStyle="bold" />
 
 
-
-        <LinearLayout android:id="@+id/uname_block"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/header"
-            android:layout_marginTop="30dp"
-            android:orientation="horizontal">  
-
-            <TextView android:id="@+id/username"
-                android:layout_weight="35"
-            android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:text="@string/lbl_name"
-             />
-
-            <EditText
-                android:id="@+id/fld_username"
-                android:layout_width="0dp"
-                android:layout_weight="65"
-                android:layout_height="wrap_content"
-                android:hint="@string/lbl_enter_name"
-            />
-
-    </LinearLayout>
-
-    <LinearLayout android:id="@+id/phn_block"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/uname_block"
-        android:orientation="horizontal">
-
-        <TextView android:id="@+id/phn"
-            android:layout_weight="35"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="@string/lbl_phn"
-         />
-
-        <EditText
-            android:id="@+id/fld_phn"
-            android:inputType="textPhonetic"
-               android:layout_width="0dp"
-                android:layout_weight="65"
-            android:layout_height="wrap_content"
-            android:hint="@string/lbl_enter_phn"
-         />
-
-    </LinearLayout>
-       <Button
+		     <Button
         android:id="@+id/phn_submit"
-        android:layout_below="@id/phn_block"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/header"
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
-        android:layout_width="100dp"
+        android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:text="@string/lbl_submit" />
+        android:text="@string/lbl_create" />
+  
+
+   
+       <Button
+        android:id="@+id/skip"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/phn_submit"
+        android:layout_gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:text="@string/lbl_skip" />
    
  
 
