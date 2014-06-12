@@ -24,7 +24,7 @@
 
 
 		     <Button
-        android:id="@+id/phn_submit"
+        android:id="@+id/create_activity"
         android:layout_marginTop="30dp"
         android:layout_below="@id/header"
         android:layout_gravity="center"
