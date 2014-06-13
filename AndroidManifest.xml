@@ -31,5 +31,5 @@
             android:label="@string/title_activity_carpool_list" >
         </activity>
     </application>
-
+<uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
