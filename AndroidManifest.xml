@@ -26,6 +26,10 @@
             android:name="com.codelearn.carpool.CreateCarpoolActivity"
             android:label="@string/title_activity_create_carpool" >
         </activity>
+        <activity
+            android:name="com.codelearn.carpool.CarpoolListActivity"
+            android:label="@string/title_activity_carpool_list" >
+        </activity>
     </application>
 
 </manifest>

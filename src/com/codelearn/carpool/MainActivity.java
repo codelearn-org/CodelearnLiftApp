@@ -1,6 +1,7 @@
 package com.codelearn.carpool;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
@@ -21,7 +22,10 @@ public class MainActivity extends Activity {
 		  SharedPreferences prefs = getSharedPreferences("codelearn_carpool", MODE_PRIVATE);
 		 edit = prefs.edit();
 		  Boolean firstrun = prefs.getBoolean("pref_first_run", true);
-		  if(!firstrun);
+		  if(!firstrun){
+			  Intent myIntent = new Intent(MainActivity.this, CarpoolListActivity.class);
+				startActivity(myIntent);
+		  };
 			  
 		  _skip = (Button) findViewById(R.id.skip);
 		  _create = (Button) findViewById(R.id.create_activity);
@@ -31,7 +35,8 @@ public class MainActivity extends Activity {
 			public void onClick(View arg0) {
 				edit.putBoolean("pref_first_run", false);
 				edit.commit();
-				
+				Intent myIntent = new Intent(MainActivity.this, CreateCarpoolActivity.class);
+				startActivity(myIntent);
 			}});
 		  
 		  _skip.setOnClickListener(new OnClickListener(){
@@ -40,6 +45,8 @@ public class MainActivity extends Activity {
 				public void onClick(View arg0) {
 					edit.putBoolean("pref_first_run", false);
 					edit.commit();
+					Intent myIntent = new Intent(MainActivity.this, CarpoolListActivity.class);
+					startActivity(myIntent);
 					
 				}});
 	}

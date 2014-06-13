@@ -6,7 +6,6 @@
     <string name="carpool_title">Carpool</string>
     <string name="lbl_phn">Phone number</string>
     <string name="lbl_enter_phn">Enter phone number</string>
-    
     <string name="title_activity_create_carpool">CreateCarpoolActivity</string>
     <string name="lbl_location">Location</string>
     <string name="lbl_enter_location">Enter home location</string>
@@ -14,5 +13,7 @@
     <string name="lbl_etime">End time</string>
     <string name="lbl_create">Create Carpool</string>
     <string name="lbl_skip">Skip</string>
+    <string name="title_activity_carpool_list">CarpoolListActivity</string>
+    <string name="hello_world">Hello world!</string>
 
 </resources>
