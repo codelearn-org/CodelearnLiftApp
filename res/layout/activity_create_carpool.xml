@@ -103,7 +103,7 @@
     </LinearLayout>
     
        <Button
-        android:id="@+id/phn_submit"
+        android:id="@+id/carpool_submit"
         android:layout_below="@id/etime_block"
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"

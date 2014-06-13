@@ -38,7 +38,7 @@
        <Button
         android:id="@+id/skip"
         android:layout_marginTop="30dp"
-        android:layout_below="@id/phn_submit"
+        android:layout_below="@id/create_activity"
         android:layout_gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_width="200dp"
