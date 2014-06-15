@@ -80,7 +80,4 @@ class CreateCarpoolTask extends AsyncTask<String, Void, String> {
     	   dialog.setMessage("Creating carpool");
            dialog.show();
        }
-
-       @Override
-       protected void onProgressUpdate(Void... values) {}
    }
