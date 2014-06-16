@@ -30,6 +30,10 @@
             android:name="com.codelearn.carpool.CarpoolListActivity"
             android:label="@string/title_activity_carpool_list" >
         </activity>
+            <activity
+            android:name="com.codelearn.carpool.CarpoolDetailActivity"
+            android:label="@string/title_activity_carpool_detail" >
+        </activity>
     </application>
 <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>

@@ -16,6 +16,10 @@ public class CarpoolDetailActivity extends Activity {
 		TextView cp_stime = (TextView) findViewById(R.id.cp_stime);
 		TextView cp_etime = (TextView) findViewById(R.id.cp_etime);
 		TextView cp_phone = (TextView) findViewById(R.id.cp_phn);
+		cp_location.setText(value.location);
+		cp_stime.setText(value.stime);
+		cp_etime.setText(value.etime);
+		cp_phone.setText(value.phone);
 	}
 
 

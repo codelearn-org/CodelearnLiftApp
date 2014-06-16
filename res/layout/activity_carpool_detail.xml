@@ -17,12 +17,14 @@
 
         <TextView
             android:id="@+id/textView1"
+            android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lbl_location" />
 
         <TextView
             android:id="@+id/cp_location"
+             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/textView1"
@@ -30,6 +32,7 @@
 
         <TextView
             android:id="@+id/textView3"
+             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView1"
@@ -37,30 +40,38 @@
        
          <TextView
             android:id="@+id/cp_stime"
+             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/cp_location"
             android:layout_toRightOf="@+id/textView3"
             />
         <TextView
             android:id="@+id/textView5"
+             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView3"
             android:text="@string/lbl_etime"/>
          <TextView
             android:id="@+id/cp_etime"
+             android:textSize="20sp"
+             android:layout_below="@id/cp_stime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@+id/textView5"
             />
         <TextView
             android:id="@+id/textView7"
+             android:textSize="20sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/textView5"
             android:text="@string/lbl_phn"/>
          <TextView
             android:id="@+id/cp_phn"
+             android:textSize="20sp"
+             android:layout_below="@id/cp_etime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:autoLink="phone"

@@ -4,6 +4,10 @@ import java.util.List;
 
 import models.Carpool;
 import android.app.Activity;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.content.SharedPreferences.Editor;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +18,12 @@ public class CarpoolAdapter extends ArrayAdapter<Carpool> {
 	
 	 private LayoutInflater inflater;
 	 private List<Carpool> carpoolLocal;
-
+		SharedPreferences prefs;
 	  public CarpoolAdapter(Activity activity, List<Carpool> carpools){
 	         super(activity, R.layout.row_carpool, carpools);
 	         inflater = activity.getWindow().getLayoutInflater();
 	         carpoolLocal = carpools;
+	         prefs =  activity.getSharedPreferences("codelearn_carpool", Context.MODE_PRIVATE);
 	     }
 	     
 	     public CarpoolAdapter(Activity activity,String[] str){
@@ -29,7 +34,13 @@ public class CarpoolAdapter extends ArrayAdapter<Carpool> {
 	     
 	     @Override
 	     public View getView(int position, View convertView, ViewGroup parent){
-	         View row = inflater.inflate(R.layout.row_carpool, parent, false);
+	         if(position ==0 && prefs.getString("pref_carpool_id", null) == null){
+	        	 View row = inflater.inflate(R.layout.row_create, parent, false);
+	        	 return row;
+	         }
+	        
+	    	 
+	    	 View row = inflater.inflate(R.layout.row_carpool, parent, false);
 	         TextView title = (TextView) row.findViewById(R.id.carpoolTitle);
 	         Carpool carpool = carpoolLocal.get(position);
 	         title.setText(carpool.location);
@@ -37,6 +48,9 @@ public class CarpoolAdapter extends ArrayAdapter<Carpool> {
 	         TextView etime = (TextView) row.findViewById(R.id.etime_entry);
 	         stime.setText(carpool.stime);
 	         etime.setText(carpool.etime);
+	         if(position == 0){
+	        	 row.setBackgroundColor(Color.CYAN);
+	         }
 	         return row;
 	     }
 

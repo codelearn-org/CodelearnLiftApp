@@ -26,19 +26,18 @@ public class CreateCarpoolActivity extends Activity {
 	TimePicker _etime;
 	Button _submit;
 	Gson gson;
-	Context activity;
+	CreateCarpoolTask task;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_carpool);
-		activity =this.getApplicationContext();
 		gson = new Gson();
 		_phoneNo = (EditText) findViewById(R.id.fld_phn);
 		_location = (EditText) findViewById(R.id.fld_location);
 		_stime = (TimePicker) findViewById(R.id.fld_stime);
 		_etime = (TimePicker) findViewById(R.id.fld_etime);
 		_submit = (Button) findViewById(R.id.carpool_submit);
-		
+		task = new CreateCarpoolTask(this);
 		_submit.setOnClickListener(new OnClickListener(){
 			
 			@Override
@@ -49,7 +48,7 @@ public class CreateCarpoolActivity extends Activity {
 			cp.stime = parseTime(_stime);
 			cp.etime = parseTime(_etime);
 			String json = gson.toJson(cp, Carpool.class);
-			(new CreateCarpoolTask(activity)).execute(json);
+			task.execute(json);
 				
 			}});
 	}

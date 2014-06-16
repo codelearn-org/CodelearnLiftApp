@@ -1,9 +1,10 @@
 package tasks;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+
+import models.Cid;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.ClientProtocolException;
@@ -39,7 +40,7 @@ public class CreateCarpoolTask extends AsyncTask<String, Void, String> {
  
             
             HttpPost httpPost = new HttpPost("http://codelearn-carpool.herokuapp.com/api/create");
-            String result = null;
+            Cid result = new Cid();
             StringEntity se;
 			try {
 				se = new StringEntity(params[0]);
@@ -54,7 +55,8 @@ public class CreateCarpoolTask extends AsyncTask<String, Void, String> {
 	            {
 	            	InputStreamReader isr = new InputStreamReader ( inputstream );
 	            	Gson g = new Gson();
-	            	result = g.toJson(isr,String.class);
+	            	result = g.fromJson(isr, Cid.class);
+	            	
 	            }
 			} catch (UnsupportedEncodingException e) {
 			} catch (ClientProtocolException e) {
@@ -62,17 +64,18 @@ public class CreateCarpoolTask extends AsyncTask<String, Void, String> {
 			}
  
            
-           return result;
+           return result.id;
             
        }
 
        @Override
        protected void onPostExecute(String result) {
+    	   edit.putString("pref_carpool_id", result);
+    	   edit.commit();
     	   if (dialog.isShowing()) {
                dialog.dismiss();
            }
-    	   edit.putString("pref_carpool_id", result);
-    	   edit.commit();
+    	   
     	   ((CreateCarpoolActivity)ac).finish();
        }
 
