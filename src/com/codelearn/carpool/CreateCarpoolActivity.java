@@ -1,14 +1,15 @@
 package com.codelearn.carpool;
 
 import java.text.Format;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-
-import tasks.CreateCarpoolTask;
+import java.util.Date;
 
 import models.Carpool;
+import tasks.CreateCarpoolTask;
+import tasks.EditCarpoolTask;
 import android.app.Activity;
-import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -26,18 +27,26 @@ public class CreateCarpoolActivity extends Activity {
 	TimePicker _etime;
 	Button _submit;
 	Gson gson;
-	CreateCarpoolTask task;
+	Carpool value;
+	CreateCarpoolTask ctask;
+	EditCarpoolTask etask;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_carpool);
 		gson = new Gson();
+		value = (Carpool) getIntent().getSerializableExtra("MyClass");
 		_phoneNo = (EditText) findViewById(R.id.fld_phn);
 		_location = (EditText) findViewById(R.id.fld_location);
 		_stime = (TimePicker) findViewById(R.id.fld_stime);
 		_etime = (TimePicker) findViewById(R.id.fld_etime);
 		_submit = (Button) findViewById(R.id.carpool_submit);
-		task = new CreateCarpoolTask(this);
+		if(value != null){
+			populateFields(value);
+		}
+		ctask = new CreateCarpoolTask(this);
+		etask = new EditCarpoolTask(this);
+		
 		_submit.setOnClickListener(new OnClickListener(){
 			
 			@Override
@@ -48,9 +57,37 @@ public class CreateCarpoolActivity extends Activity {
 			cp.stime = parseTime(_stime);
 			cp.etime = parseTime(_etime);
 			String json = gson.toJson(cp, Carpool.class);
-			task.execute(json);
-				
+			
+			if(value!=null){
+			etask.execute(json);	
+			}
+			else {
+			ctask.execute(json);
+			}
+			
 			}});
+	}
+
+	private void populateFields(Carpool value) {
+		_phoneNo.setText(value.phone);
+		_location.setText(value.location);
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+		Calendar c = Calendar.getInstance();
+		try {
+			Date date = sdf.parse(value.stime);
+		    c.setTime(date);
+		    _stime.setCurrentHour(c.get(Calendar.HOUR_OF_DAY));
+		    _stime.setCurrentMinute(c.get(Calendar.MINUTE));
+		    date = sdf.parse(value.etime);
+		    c.setTime(date);
+		    _etime.setCurrentHour(c.get(Calendar.HOUR_OF_DAY));
+		    _etime.setCurrentMinute(c.get(Calendar.MINUTE));
+			
+		} catch (ParseException e) {
+		
+			
+		}
+		_submit.setText("Update Carpool");
 	}
 
 	@Override
