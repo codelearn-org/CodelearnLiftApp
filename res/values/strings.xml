@@ -10,8 +10,8 @@
      <string name="title_activity_carpool_detail">CarpoolDetailActivity</string>
     <string name="lbl_location">Location:</string>
     <string name="lbl_enter_location">Enter home location</string>
-    <string name="lbl_stime">Home start time:</string>
-    <string name="lbl_etime">Office start time:</string>
+    <string name="lbl_stime">Start from home:</string>
+    <string name="lbl_etime">Start from office:</string>
     <string name="lbl_create">Create Carpool</string>
     <string name="lbl_skip">Skip</string>
     <string name="title_activity_carpool_list">CarpoolListActivity</string>
