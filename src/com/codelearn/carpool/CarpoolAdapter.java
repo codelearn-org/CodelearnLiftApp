@@ -33,8 +33,10 @@ public class CarpoolAdapter extends ArrayAdapter<Carpool> {
 	         TextView title = (TextView) row.findViewById(R.id.carpoolTitle);
 	         Carpool carpool = carpoolLocal.get(position);
 	         title.setText(carpool.location);
-	         TextView number = (TextView) row.findViewById(R.id.carpoolNumber);
-	         number.setText(carpool.number);
+	         TextView stime = (TextView) row.findViewById(R.id.stime_entry);
+	         TextView etime = (TextView) row.findViewById(R.id.etime_entry);
+	         stime.setText(carpool.stime);
+	         etime.setText(carpool.etime);
 	         return row;
 	     }
 

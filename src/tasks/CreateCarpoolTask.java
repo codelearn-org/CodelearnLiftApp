@@ -1,4 +1,4 @@
-package com.codelearn.carpool;
+package tasks;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -18,14 +18,15 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 
+import com.codelearn.carpool.CreateCarpoolActivity;
 import com.google.gson.Gson;
 
-class CreateCarpoolTask extends AsyncTask<String, Void, String> {
+public class CreateCarpoolTask extends AsyncTask<String, Void, String> {
 	 private ProgressDialog dialog;
 	 SharedPreferences prefs;
 	 Editor edit;
-	 CreateCarpoolActivity ac;
-	 public CreateCarpoolTask(CreateCarpoolActivity activity) {
+	 Context ac;
+	 public CreateCarpoolTask(Context activity) {
 		 	ac = activity;
 		 	dialog = new ProgressDialog(activity);
 	        prefs = activity.getSharedPreferences("codelearn_carpool", Context.MODE_PRIVATE);
@@ -37,7 +38,7 @@ class CreateCarpoolTask extends AsyncTask<String, Void, String> {
 	 		HttpClient httpclient = new DefaultHttpClient();
  
             
-            HttpPost httpPost = new HttpPost("url");
+            HttpPost httpPost = new HttpPost("http://codelearn-carpool.herokuapp.com/api/create");
             String result = null;
             StringEntity se;
 			try {
@@ -72,7 +73,7 @@ class CreateCarpoolTask extends AsyncTask<String, Void, String> {
            }
     	   edit.putString("pref_carpool_id", result);
     	   edit.commit();
-    	   ac.finish();
+    	   ((CreateCarpoolActivity)ac).finish();
        }
 
        @Override

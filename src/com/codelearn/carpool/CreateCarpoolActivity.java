@@ -4,8 +4,11 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
+import tasks.CreateCarpoolTask;
+
 import models.Carpool;
 import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -23,12 +26,12 @@ public class CreateCarpoolActivity extends Activity {
 	TimePicker _etime;
 	Button _submit;
 	Gson gson;
-	CreateCarpoolActivity activity;
+	Context activity;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_carpool);
-		activity =this;
+		activity =this.getApplicationContext();
 		gson = new Gson();
 		_phoneNo = (EditText) findViewById(R.id.fld_phn);
 		_location = (EditText) findViewById(R.id.fld_location);
@@ -41,7 +44,7 @@ public class CreateCarpoolActivity extends Activity {
 			@Override
 			public void onClick(View arg0) {
 			Carpool cp = new Carpool();
-			cp.number = _phoneNo.getText().toString();
+			cp.phone = _phoneNo.getText().toString();
 			cp.location = _location.getText().toString();
 			cp.stime = parseTime(_stime);
 			cp.etime = parseTime(_etime);

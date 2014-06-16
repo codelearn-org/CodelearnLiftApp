@@ -14,12 +14,13 @@ public class MainActivity extends Activity {
 	Button _skip;
 	Button _create;
 	Editor edit;
+	SharedPreferences prefs;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		  SharedPreferences prefs = getSharedPreferences("codelearn_carpool", MODE_PRIVATE);
+		 prefs =  getSharedPreferences("codelearn_carpool", MODE_PRIVATE);
 		 edit = prefs.edit();
 		  Boolean firstrun = prefs.getBoolean("pref_first_run", true);
 		  if(!firstrun){
@@ -57,5 +58,15 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
+	
 
+	@Override 
+	public void onResume(){
+		super.onResume();
+		Boolean firstrun = prefs.getBoolean("pref_first_run", true);
+		  if(!firstrun){
+		  finish();
+		  }
+	}
+	
 }

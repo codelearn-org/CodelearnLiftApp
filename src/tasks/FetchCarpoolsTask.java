@@ -1,4 +1,4 @@
-package com.codelearn.carpool;
+package tasks;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -6,6 +6,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
+
 
 import models.Carpool;
 
@@ -17,6 +18,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.codelearn.carpool.CarpoolListActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -36,7 +38,7 @@ public class FetchCarpoolsTask extends AsyncTask<Void, Void, List<Carpool>>{
             HttpClient httpclient = new DefaultHttpClient();
  
             
-            HttpResponse httpResponse = httpclient.execute(new HttpGet(""));
+            HttpResponse httpResponse = httpclient.execute(new HttpGet("http://codelearn-carpool.herokuapp.com/api/carpools"));
  
            
             inputStream = httpResponse.getEntity().getContent();
