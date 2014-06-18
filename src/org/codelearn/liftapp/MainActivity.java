@@ -20,13 +20,13 @@ public class MainActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		 prefs =  getSharedPreferences("codelearn_carpool", MODE_PRIVATE);
-		 edit = prefs.edit();
-		  Boolean firstrun = prefs.getBoolean("pref_first_run", true);
-		  if(!firstrun){
+		// prefs =  getSharedPreferences("codelearn_carpool", MODE_PRIVATE);
+		// edit = prefs.edit();
+		 // Boolean firstrun = prefs.getBoolean("pref_first_run", true);
+		  /*if(!firstrun){
 			  Intent myIntent = new Intent(MainActivity.this, CarpoolListActivity.class);
 				startActivity(myIntent);
-		  };
+		  };*/
 			  
 		  _skip = (Button) findViewById(R.id.skip);
 		  _create = (Button) findViewById(R.id.create_activity);
@@ -34,8 +34,8 @@ public class MainActivity extends Activity {
 
 			@Override
 			public void onClick(View arg0) {
-				edit.putBoolean("pref_first_run", false);
-				edit.commit();
+				//edit.putBoolean("pref_first_run", false);
+				//edit.commit();
 				Intent myIntent = new Intent(MainActivity.this, CreateCarpoolActivity.class);
 				startActivity(myIntent);
 			}});
@@ -44,8 +44,8 @@ public class MainActivity extends Activity {
 
 				@Override
 				public void onClick(View arg0) {
-					edit.putBoolean("pref_first_run", false);
-					edit.commit();
+					//edit.putBoolean("pref_first_run", false);
+					//edit.commit();
 					Intent myIntent = new Intent(MainActivity.this, CarpoolListActivity.class);
 					startActivity(myIntent);
 					
@@ -63,10 +63,11 @@ public class MainActivity extends Activity {
 	@Override 
 	public void onResume(){
 		super.onResume();
-		Boolean firstrun = prefs.getBoolean("pref_first_run", true);
+		/*Boolean firstrun = prefs.getBoolean("pref_first_run", true);
 		  if(!firstrun){
 		  finish();
-		  }
+		  
+		  }*/
 	}
 	
 }
