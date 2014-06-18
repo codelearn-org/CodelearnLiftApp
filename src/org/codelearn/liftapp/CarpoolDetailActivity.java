@@ -1,6 +1,7 @@
-package com.codelearn.carpool;
+package org.codelearn.liftapp;
 
-import models.Carpool;
+import org.codelearn.liftapp.models.Carpool;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;

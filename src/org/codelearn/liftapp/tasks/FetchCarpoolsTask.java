@@ -1,4 +1,4 @@
-package tasks;
+package org.codelearn.liftapp.tasks;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -7,12 +7,13 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import models.Carpool;
 
 import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.codelearn.liftapp.CarpoolListActivity;
+import org.codelearn.liftapp.models.Carpool;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -20,7 +21,6 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import com.codelearn.carpool.CarpoolListActivity;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 

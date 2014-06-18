@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.codelearn.carpool"
+    package="org.codelearn.liftapp"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.codelearn.carpool.MainActivity"
+            android:name="org.codelearn.liftapp.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,15 +23,15 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.codelearn.carpool.CreateCarpoolActivity"
+            android:name="org.codelearn.liftapp.CreateCarpoolActivity"
             android:label="@string/title_activity_create_carpool" >
         </activity>
         <activity
-            android:name="com.codelearn.carpool.CarpoolListActivity"
+            android:name="org.codelearn.liftapp.CarpoolListActivity"
             android:label="@string/title_activity_carpool_list" >
         </activity>
             <activity
-            android:name="com.codelearn.carpool.CarpoolDetailActivity"
+            android:name="org.codelearn.liftapp.CarpoolDetailActivity"
             android:label="@string/title_activity_carpool_detail" >
         </activity>
     </application>

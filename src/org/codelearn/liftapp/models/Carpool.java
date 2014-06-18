@@ -1,4 +1,4 @@
-package models;
+package org.codelearn.liftapp.models;
 
 import java.io.Serializable;
 

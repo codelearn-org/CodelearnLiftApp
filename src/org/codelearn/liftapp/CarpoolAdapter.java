@@ -1,12 +1,12 @@
-package com.codelearn.carpool;
+package org.codelearn.liftapp;
 
 import java.util.List;
 
-import models.Carpool;
+import org.codelearn.liftapp.models.Carpool;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;

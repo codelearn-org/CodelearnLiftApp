@@ -1,4 +1,4 @@
-package com.codelearn.carpool;
+package org.codelearn.liftapp;
 
 import java.text.Format;
 import java.text.ParseException;
@@ -6,9 +6,10 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
-import models.Carpool;
-import tasks.CreateCarpoolTask;
-import tasks.EditCarpoolTask;
+import org.codelearn.liftapp.models.Carpool;
+import org.codelearn.liftapp.tasks.CreateCarpoolTask;
+import org.codelearn.liftapp.tasks.EditCarpoolTask;
+
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -71,7 +72,7 @@ public class CreateCarpoolActivity extends Activity {
 	private void populateFields(Carpool value) {
 		_phoneNo.setText(value.phone);
 		_location.setText(value.location);
-		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+		SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 		Calendar c = Calendar.getInstance();
 		try {
 			Date date = sdf.parse(value.stime);
@@ -104,7 +105,7 @@ public class CreateCarpoolActivity extends Activity {
 		 calendar.set(Calendar.HOUR_OF_DAY, tp.getCurrentHour());
 		 calendar.set(Calendar.MINUTE, tp.getCurrentMinute());
 
-		 formatter = new SimpleDateFormat("HH:mm:00");
+		 formatter = new SimpleDateFormat("HH:mm");
 		 s = formatter.format(calendar.getTime());
 		 return s;
 	 }

@@ -1,4 +1,4 @@
-package com.codelearn.carpool;
+package org.codelearn.liftapp;
 
 import android.app.Activity;
 import android.content.Intent;

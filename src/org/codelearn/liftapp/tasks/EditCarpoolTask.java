@@ -1,4 +1,4 @@
-package tasks;
+package org.codelearn.liftapp.tasks;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -8,8 +8,8 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
+import org.codelearn.liftapp.CreateCarpoolActivity;
 
-import com.codelearn.carpool.CreateCarpoolActivity;
 
 import android.app.ProgressDialog;
 import android.content.Context;
