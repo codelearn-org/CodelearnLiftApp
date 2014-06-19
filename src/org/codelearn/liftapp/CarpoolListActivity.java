@@ -1,10 +1,10 @@
 package org.codelearn.liftapp;
 
-import android.app.ListActivity;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 
-public class CarpoolListActivity extends ListActivity {
+public class CarpoolListActivity extends Activity {
 	
 
 	@Override

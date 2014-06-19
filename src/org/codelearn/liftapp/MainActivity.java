@@ -29,7 +29,8 @@ public class MainActivity extends Activity {
 		  };*/
 			  
 		  _skip = (Button) findViewById(R.id.skip);
-		  _create = (Button) findViewById(R.id.create_activity);
+		  _create = (Button) findViewById(R.id.create);
+		  
 		  _create.setOnClickListener(new OnClickListener(){
 
 			@Override
