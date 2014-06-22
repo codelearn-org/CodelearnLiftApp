@@ -1,5 +1,7 @@
 package org.codelearn.liftapp;
 
+import org.codelearn.liftapp.tasks.DeleteCarpoolTask;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -26,13 +28,21 @@ public class CarpoolListActivity extends Activity {
 	
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		Intent myIntent = new Intent(CarpoolListActivity.this, CreateCarpoolActivity.class);
-		String phone = prefs.getString("pref_key_phone", null);
+		switch (item.getItemId()){
+		case R.id.action_edit_carpool:
+		Intent myIntent = new Intent(this, CreateCarpoolActivity.class);
+		String phone = prefs.getString("pref_carpool_id", null);
 		if(phone != null){
 			myIntent.putExtra("edit", true);
-			}
+		}
 		startActivity(myIntent);
 	    return true;
+		case R.id.action_delete_carpool:
+			(new DeleteCarpoolTask(this)).execute();
+		default:
+			return super.onOptionsItemSelected(item);
+		}
+		
 	}
 
 	

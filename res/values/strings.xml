@@ -14,6 +14,7 @@
     <string name="lbl_etime">Start from office:</string>
     <string name="lbl_create">Create carpool</string>
     <string name="lbl_edit">Edit carpool</string>
+    <string name="lbl_delete">Delete carpool</string>
     <string name="lbl_skip">Skip</string>
     <string name="lbl_call">Call</string>
     <string name="lbl_message">Message</string>

@@ -6,16 +6,23 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import org.codelearn.liftapp.models.Carpool;
+import org.codelearn.liftapp.tasks.CreateCarpoolTask;
+import org.codelearn.liftapp.tasks.EditCarpoolTask;
+
 import android.app.Activity;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
+
+import com.google.gson.Gson;
 
 public class CreateCarpoolActivity extends Activity {
 	EditText _phoneNo;
@@ -24,14 +31,24 @@ public class CreateCarpoolActivity extends Activity {
 	TimePicker _etime;
 	Button _submit;
 	Editor edit;
+	Boolean value = false;
 	SharedPreferences prefs;
+	Gson gson;
+	CreateCarpoolTask ctask;
+	EditCarpoolTask etask;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_create_carpool);
-		Boolean value =  getIntent().getBooleanExtra("edit",false);
-		 prefs =  getSharedPreferences("codelearn_liftapp", MODE_PRIVATE);
+		Bundle extras = getIntent().getExtras();
+		if(extras != null)
+		value =  extras.getBoolean("edit");
+		gson = new Gson();
+		prefs =  getSharedPreferences("codelearn_liftapp", MODE_PRIVATE);
 		 edit = prefs.edit();
+		 ctask = new CreateCarpoolTask(this);
+		 etask = new EditCarpoolTask(this);
 		_phoneNo = (EditText) findViewById(R.id.fld_phn);
 		_location = (EditText) findViewById(R.id.fld_location);
 		_stime = (TimePicker) findViewById(R.id.fld_stime);
@@ -51,6 +68,19 @@ public class CreateCarpoolActivity extends Activity {
 			edit.putString("pref_key_stime",  parseTime(_stime));
 			edit.putString("pref_key_etime",  parseTime(_etime));
 			edit.commit();
+			Carpool cp = new Carpool();
+			cp.phone = _phoneNo.getText().toString();
+			cp.location = _location.getText().toString();
+			cp.stime = parseTime(_stime);
+			cp.etime = parseTime(_etime);
+			String json = gson.toJson(cp, Carpool.class);
+
+			if(value){
+			etask.execute(json);	
+			}
+			else {
+			ctask.execute(json);
+			}
 			}});
 		
 		
@@ -65,7 +95,7 @@ public class CreateCarpoolActivity extends Activity {
 		    c.setTime(date);
 		    _stime.setCurrentHour(c.get(Calendar.HOUR_OF_DAY));
 		    _stime.setCurrentMinute(c.get(Calendar.MINUTE));
-		    date = sdf.parse(prefs.getString("pref_key_stime", "00:00"));
+		    date = sdf.parse(prefs.getString("pref_key_etime", "00:00"));
 		    c.setTime(date);
 		    _etime.setCurrentHour(c.get(Calendar.HOUR_OF_DAY));
 		    _etime.setCurrentMinute(c.get(Calendar.MINUTE));
