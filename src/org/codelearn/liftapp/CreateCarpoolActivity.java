@@ -65,7 +65,7 @@ public class CreateCarpoolActivity extends Activity {
 		    c.setTime(date);
 		    _stime.setCurrentHour(c.get(Calendar.HOUR_OF_DAY));
 		    _stime.setCurrentMinute(c.get(Calendar.MINUTE));
-		    date = sdf.parse(prefs.getString("pref_key_stime", "00:00"));
+		    date = sdf.parse(prefs.getString("pref_key_etime", "00:00"));
 		    c.setTime(date);
 		    _etime.setCurrentHour(c.get(Calendar.HOUR_OF_DAY));
 		    _etime.setCurrentMinute(c.get(Calendar.MINUTE));
