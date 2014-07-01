@@ -7,7 +7,7 @@
     <string name="lbl_phn">Phone number:</string>
     <string name="lbl_enter_phn">Enter phone number</string>
     <string name="title_activity_create_carpool">CreateCarpoolActivity</string>
-     <string name="title_activity_carpool_detail">CarpoolDetailActivity</string>
+    <string name="title_activity_carpool_detail">CarpoolDetailActivity</string>
     <string name="lbl_location">Location:</string>
     <string name="lbl_enter_location">Enter home location</string>
     <string name="lbl_stime">Start from home:</string>
@@ -19,4 +19,7 @@
     <string name="lbl_call">Call</string>
     <string name="lbl_message">Message</string>
     <string name="title_activity_carpool_list">CarpoolListActivity</string>
+    <string name="title_activity_carpool_detail_activty">CarpoolDetailActivty</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>

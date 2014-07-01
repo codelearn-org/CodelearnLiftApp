@@ -30,5 +30,10 @@
             android:name="org.codelearn.liftapp.CarpoolListActivity"
             android:label="@string/title_activity_carpool_list" >
         </activity>
+        <activity
+            android:name="org.codelearn.liftapp.CarpoolDetailActivity"
+            android:label="@string/title_activity_carpool_detail_activty" >
+        </activity>
     </application>
+<uses-permission android:name="android.permission.CALL_PHONE" />
 </manifest>
