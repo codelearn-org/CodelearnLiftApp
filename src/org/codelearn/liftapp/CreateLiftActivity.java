@@ -17,7 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TimePicker;
 
-public class CreateCarpoolActivity extends Activity {
+public class CreateLiftActivity extends Activity {
 	EditText _phoneNo;
 	EditText _location;
 	TimePicker _stime;
@@ -28,7 +28,7 @@ public class CreateCarpoolActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_create_carpool);
+		setContentView(R.layout.activity_create_lift);
 		Boolean value =  getIntent().getBooleanExtra("edit",false);
 		 prefs =  getSharedPreferences("codelearn_liftapp", MODE_PRIVATE);
 		 edit = prefs.edit();
@@ -36,7 +36,7 @@ public class CreateCarpoolActivity extends Activity {
 		_location = (EditText) findViewById(R.id.fld_location);
 		_stime = (TimePicker) findViewById(R.id.fld_stime);
 		_etime = (TimePicker) findViewById(R.id.fld_etime);
-		_submit = (Button) findViewById(R.id.carpool_submit);
+		_submit = (Button) findViewById(R.id.lift_submit);
 		if(value){
 			populateFields();
 		}
