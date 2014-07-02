@@ -11,8 +11,8 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.codelearn.liftapp.CreateCarpoolActivity;
-import org.codelearn.liftapp.models.Cid;
+import org.codelearn.liftapp.CreateLiftActivity;
+import org.codelearn.liftapp.models.Lid;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -22,12 +22,12 @@ import android.os.AsyncTask;
 
 import com.google.gson.Gson;
 
-public class CreateCarpoolTask extends AsyncTask<String, Void, String> {
+public class CreateLiftTask extends AsyncTask<String, Void, String> {
 	 private ProgressDialog dialog;
 	 SharedPreferences prefs;
 	 Editor edit;
 	 Context ac;
-	 public CreateCarpoolTask(Context activity) {
+	 public CreateLiftTask(Context activity) {
 		 	ac = activity;
 		 	dialog = new ProgressDialog(activity);
 	        prefs = activity.getSharedPreferences("codelearn_liftapp", Context.MODE_PRIVATE);
@@ -39,8 +39,8 @@ public class CreateCarpoolTask extends AsyncTask<String, Void, String> {
 	 		HttpClient httpclient = new DefaultHttpClient();
  
             
-            HttpPost httpPost = new HttpPost("http://codelearn-carpool.herokuapp.com/api/create");
-            Cid result = new Cid();
+            HttpPost httpPost = new HttpPost("http://codelearn-liftapp.herokuapp.com/api/create");
+            Lid result = new Lid();
             StringEntity se;
 			try {
 				se = new StringEntity(params[0]);
@@ -55,7 +55,7 @@ public class CreateCarpoolTask extends AsyncTask<String, Void, String> {
 	            {
 	            	InputStreamReader isr = new InputStreamReader ( inputstream );
 	            	Gson g = new Gson();
-	            	result = g.fromJson(isr, Cid.class);
+	            	result = g.fromJson(isr, Lid.class);
 	            	
 	            }
 			} catch (UnsupportedEncodingException e) {
@@ -70,18 +70,18 @@ public class CreateCarpoolTask extends AsyncTask<String, Void, String> {
 
        @Override
        protected void onPostExecute(String result) {
-    	   edit.putString("pref_carpool_id", result);
+    	   edit.putString("pref_lift_id", result);
     	   edit.commit();
     	   if (dialog.isShowing()) {
                dialog.dismiss();
            }
     	   
-    	   ((CreateCarpoolActivity)ac).finish();
+    	   ((CreateLiftActivity)ac).finish();
        }
 
        @Override
        protected void onPreExecute() {
-    	   dialog.setMessage("Creating carpool");
+    	   dialog.setMessage("Creating lift");
            dialog.show();
        }
    }

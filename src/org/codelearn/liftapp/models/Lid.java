@@ -1,5 +1,5 @@
 package org.codelearn.liftapp.models;
 
-public class Cid {
+public class Lid {
 public String id;
 }

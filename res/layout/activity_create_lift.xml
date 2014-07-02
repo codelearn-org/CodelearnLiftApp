@@ -122,7 +122,7 @@ android:layout_height="wrap_content">
     android:layout_height="1dp"
     android:background="#666666" />
        <Button
-        android:id="@+id/carpool_submit"
+        android:id="@+id/lift_submit"
         android:layout_gravity="center"
         android:layout_width="200dp"
         android:layout_height="wrap_content"

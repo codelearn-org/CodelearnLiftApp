@@ -23,11 +23,11 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="org.codelearn.liftapp.CreateCarpoolActivity"
+            android:name="org.codelearn.liftapp.CreateLiftActivity"
             android:label="@string/title_activity_create_carpool" >
         </activity>
         <activity
-            android:name="org.codelearn.liftapp.CarpoolListActivity"
+            android:name="org.codelearn.liftapp.LiftListActivity"
             android:label="@string/title_activity_carpool_list" >
         </activity>
     </application>
