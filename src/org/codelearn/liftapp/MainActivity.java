@@ -37,7 +37,7 @@ public class MainActivity extends Activity {
 			public void onClick(View arg0) {
 				//edit.putBoolean("pref_first_run", false);
 				//edit.commit();
-				Intent myIntent = new Intent(MainActivity.this, CreateCarpoolActivity.class);
+				Intent myIntent = new Intent(MainActivity.this, CreateLiftActivity.class);
 				startActivity(myIntent);
 			}});
 		  
@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
 				public void onClick(View arg0) {
 					//edit.putBoolean("pref_first_run", false);
 					//edit.commit();
-					Intent myIntent = new Intent(MainActivity.this, CarpoolListActivity.class);
+					Intent myIntent = new Intent(MainActivity.this, LiftListActivity.class);
 					startActivity(myIntent);
 					
 				}});

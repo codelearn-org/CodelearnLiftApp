@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.widget.TimePicker;
 
-public class CreateCarpoolActivity extends Activity {
+public class CreateLiftActivity extends Activity {
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

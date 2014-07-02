@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 
-public class CarpoolListActivity extends Activity {
+public class LiftListActivity extends Activity {
 	
 
 	@Override
