@@ -2,9 +2,9 @@ package org.codelearn.liftapp;
 
 import java.util.List;
 
-import org.codelearn.liftapp.models.Carpool;
-import org.codelearn.liftapp.tasks.DeleteCarpoolTask;
-import org.codelearn.liftapp.tasks.FetchCarpoolsTask;
+import org.codelearn.liftapp.models.Lift;
+import org.codelearn.liftapp.tasks.DeleteLiftTask;
+import org.codelearn.liftapp.tasks.FetchLiftsTask;
 
 import android.app.ListActivity;
 import android.content.Intent;
@@ -15,21 +15,21 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
-public class CarpoolListActivity extends ListActivity {
-	private CarpoolAdapter carpoolItemArrayAdapter;
+public class LiftListActivity extends ListActivity {
+	private LiftAdapter carpoolItemArrayAdapter;
 	SharedPreferences prefs;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_carpool_list);
+		setContentView(R.layout.activity_lift_list);
 		prefs =  getSharedPreferences("codelearn_liftapp", MODE_PRIVATE);
-		carpoolItemArrayAdapter = new CarpoolAdapter(this);
+		carpoolItemArrayAdapter = new LiftAdapter(this);
 		setListAdapter(carpoolItemArrayAdapter);
 
 	}
 
-	public void renderList(List<Carpool> cp) {
-		carpoolItemArrayAdapter = new CarpoolAdapter(this, cp);
+	public void renderList(List<Lift> cp) {
+		carpoolItemArrayAdapter = new LiftAdapter(this, cp);
 		setListAdapter(carpoolItemArrayAdapter);
 
 	}
@@ -44,15 +44,15 @@ public class CarpoolListActivity extends ListActivity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()){
 		case R.id.action_edit_carpool:
-		Intent myIntent = new Intent(this, CreateCarpoolActivity.class);
-		String phone = prefs.getString("pref_carpool_id", null);
+		Intent myIntent = new Intent(this, CreateLiftActivity.class);
+		String phone = prefs.getString("pref_lift_id", null);
 		if(phone != null){
 			myIntent.putExtra("edit", true);
 		}
 		startActivity(myIntent);
 	    return true;
 		case R.id.action_delete_carpool:
-			(new DeleteCarpoolTask(this)).execute();
+			(new DeleteLiftTask(this)).execute();
 		default:
 			return super.onOptionsItemSelected(item);
 		}
@@ -62,15 +62,15 @@ public class CarpoolListActivity extends ListActivity {
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-			Intent intent = new Intent(this, CarpoolDetailActivity.class);
-			intent.putExtra("MyClass", (Carpool) getListAdapter().getItem(position));
+			Intent intent = new Intent(this, LiftDetailActivity.class);
+			intent.putExtra("MyClass", (Lift) getListAdapter().getItem(position));
 			startActivity(intent);
 		
 	}
 	@Override
 	public void onResume(){
 	super.onResume();	
-	(new FetchCarpoolsTask(this)).execute();
+	(new FetchLiftsTask(this)).execute();
 	}
 
 }

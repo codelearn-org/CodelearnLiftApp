@@ -12,8 +12,8 @@ import org.apache.http.HttpResponse;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.codelearn.liftapp.CarpoolListActivity;
-import org.codelearn.liftapp.models.Carpool;
+import org.codelearn.liftapp.LiftListActivity;
+import org.codelearn.liftapp.models.Lift;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -24,28 +24,28 @@ import android.util.Log;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-public class FetchCarpoolsTask extends AsyncTask<Void, Void, List<Carpool>>{
+public class FetchLiftsTask extends AsyncTask<Void, Void, List<Lift>>{
 	
 	Context ac;
 	ProgressDialog dialog;
 	SharedPreferences prefs;
-	public FetchCarpoolsTask(Context activity){
+	public FetchLiftsTask(Context activity){
 		ac = activity;
 		 prefs = activity.getSharedPreferences("codelearn_carpool", Context.MODE_PRIVATE);
 		 dialog = new ProgressDialog(activity);
 	}
 	@Override
-	protected List<Carpool> doInBackground(Void... args) {
+	protected List<Lift> doInBackground(Void... args) {
 		InputStream inputStream = null;
 		final Gson gson = new Gson();
-		List<Carpool> cp = new ArrayList<Carpool>();
+		List<Lift> cp = new ArrayList<Lift>();
 		try {
 			 
           
             HttpClient httpclient = new DefaultHttpClient();
  
             
-            HttpResponse httpResponse = httpclient.execute(new HttpGet("http://codelearn-carpool.herokuapp.com/api/carpools"));
+            HttpResponse httpResponse = httpclient.execute(new HttpGet("http://codelearn-liftapp.herokuapp.com/api/lifts"));
  
            
             inputStream = httpResponse.getEntity().getContent();
@@ -54,7 +54,7 @@ public class FetchCarpoolsTask extends AsyncTask<Void, Void, List<Carpool>>{
             if(inputStream != null){
             	 
                  final BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-                 Type listType = new TypeToken<List<Carpool>>() {}.getType();
+                 Type listType = new TypeToken<List<Lift>>() {}.getType();
                  cp = gson.fromJson(reader, listType);
             }
             
@@ -69,15 +69,15 @@ public class FetchCarpoolsTask extends AsyncTask<Void, Void, List<Carpool>>{
 
     @Override
     protected void onPreExecute() {
- 	   dialog.setMessage("Fetching carpools");
+ 	   dialog.setMessage("Fetching lifts");
         dialog.show();
     }
 	
 	@Override
-    protected void onPostExecute(List<Carpool> result) {
+    protected void onPostExecute(List<Lift> result) {
 		 if (dialog.isShowing()) {
              dialog.dismiss();
          }
- 	   ((CarpoolListActivity)ac).renderList(result);
+ 	   ((LiftListActivity)ac).renderList(result);
     }
 }

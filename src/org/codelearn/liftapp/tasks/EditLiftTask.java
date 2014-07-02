@@ -8,7 +8,7 @@ import org.apache.http.client.HttpClient;
 import org.apache.http.client.methods.HttpPut;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
-import org.codelearn.liftapp.CreateCarpoolActivity;
+import org.codelearn.liftapp.CreateLiftActivity;
 
 
 import android.app.ProgressDialog;
@@ -16,11 +16,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 
-public class EditCarpoolTask extends AsyncTask<String,Void,Void>{
+public class EditLiftTask extends AsyncTask<String,Void,Void>{
 	SharedPreferences prefs;
 	ProgressDialog dialog;
 	Context ac;
-	public EditCarpoolTask(Context activity){
+	public EditLiftTask(Context activity){
 		ac = activity;
 		dialog = new ProgressDialog(activity);
 		prefs = activity.getSharedPreferences("codelearn_liftapp", Context.MODE_PRIVATE);
@@ -31,15 +31,15 @@ public class EditCarpoolTask extends AsyncTask<String,Void,Void>{
              dialog.dismiss();
          }
   	   
-  	   ((CreateCarpoolActivity)ac).finish();
+  	   ((CreateLiftActivity)ac).finish();
      }
 
 	@Override
 	protected Void doInBackground(String... params) {
 		HttpClient httpclient = new DefaultHttpClient();
 		 
-        String id = prefs.getString("pref_carpool_id", null);
-        HttpPut httpPut = new HttpPut("http://codelearn-carpool.herokuapp.com/api/carpools/"+id);
+        String id = prefs.getString("pref_lift_id", null);
+        HttpPut httpPut = new HttpPut("http://codelearn-lift.herokuapp.com/api/lifts/"+id);
         StringEntity se;
 		try {
 			se = new StringEntity(params[0]);
@@ -57,7 +57,7 @@ public class EditCarpoolTask extends AsyncTask<String,Void,Void>{
 	
 	  @Override
       protected void onPreExecute() {
-   	   dialog.setMessage("Updating carpool");
+   	   dialog.setMessage("Updating lift details");
           dialog.show();
       }
 

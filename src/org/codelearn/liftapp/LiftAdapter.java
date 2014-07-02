@@ -2,30 +2,28 @@ package org.codelearn.liftapp;
 
 import java.util.List;
 
-import org.codelearn.liftapp.models.Carpool;
+import org.codelearn.liftapp.models.Lift;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-public class CarpoolAdapter extends ArrayAdapter<Carpool> {
+public class LiftAdapter extends ArrayAdapter<Lift> {
 	
 	 private LayoutInflater inflater;
-	 private List<Carpool> carpoolLocal;
+	 private List<Lift> carpoolLocal;
 		
-	  public CarpoolAdapter(Activity activity, List<Carpool> carpools){
-	         super(activity, R.layout.row_carpool, carpools);
+	  public LiftAdapter(Activity activity, List<Lift> carpools){
+	         super(activity, R.layout.row_lift, carpools);
 	         inflater = activity.getWindow().getLayoutInflater();
 	         carpoolLocal = carpools;
 	     }
 	     
-	     public CarpoolAdapter(Activity activity){
-	         super(activity, R.layout.row_carpool);
+	     public LiftAdapter(Activity activity){
+	         super(activity, R.layout.row_lift);
 	         inflater = activity.getWindow().getLayoutInflater();
 	       
 	     }
@@ -33,9 +31,9 @@ public class CarpoolAdapter extends ArrayAdapter<Carpool> {
 	     @Override
 	     public View getView(int position, View convertView, ViewGroup parent){
 	        
-	    	 View row = inflater.inflate(R.layout.row_carpool, parent, false);
+	    	 View row = inflater.inflate(R.layout.row_lift, parent, false);
 	         TextView title = (TextView) row.findViewById(R.id.carpoolTitle);
-	         Carpool carpool = carpoolLocal.get(position);
+	         Lift carpool = carpoolLocal.get(position);
 	         title.setText(carpool.location);
 	         TextView stime = (TextView) row.findViewById(R.id.stime_entry);
 	         TextView etime = (TextView) row.findViewById(R.id.etime_entry);

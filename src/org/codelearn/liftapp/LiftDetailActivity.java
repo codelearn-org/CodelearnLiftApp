@@ -1,6 +1,6 @@
 package org.codelearn.liftapp;
 
-import org.codelearn.liftapp.models.Carpool;
+import org.codelearn.liftapp.models.Lift;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -12,13 +12,13 @@ import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class CarpoolDetailActivity extends Activity {
-	Carpool value;
+public class LiftDetailActivity extends Activity {
+	Lift value;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_carpool_detail);
-		value = (Carpool) getIntent().getSerializableExtra("MyClass");
+		setContentView(R.layout.activity_lift_detail);
+		value = (Lift) getIntent().getSerializableExtra("MyClass");
 		TextView cp_location = (TextView) findViewById(R.id.cp_location);
 		TextView cp_stime = (TextView) findViewById(R.id.cp_stime);
 		TextView cp_etime = (TextView) findViewById(R.id.cp_etime);

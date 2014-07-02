@@ -14,12 +14,12 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.os.AsyncTask;
 
-public class DeleteCarpoolTask extends AsyncTask<String, Void, Void> {
+public class DeleteLiftTask extends AsyncTask<String, Void, Void> {
 	 private ProgressDialog dialog;
 	 SharedPreferences prefs;
 	 Editor edit;
 	 Context ac;
-	 public DeleteCarpoolTask(Context activity) {
+	 public DeleteLiftTask(Context activity) {
 		 	ac = activity;
 		 	dialog = new ProgressDialog(activity);
 	        prefs = activity.getSharedPreferences("codelearn_liftapp", Context.MODE_PRIVATE);
@@ -30,8 +30,8 @@ public class DeleteCarpoolTask extends AsyncTask<String, Void, Void> {
 
 	 		HttpClient httpclient = new DefaultHttpClient();
 
-           String id = prefs.getString("pref_carpool_id", null);
-           HttpDelete httpDelete = new HttpDelete("http://codelearn-carpool.herokuapp.com/api/carpools/"+id);
+           String id = prefs.getString("pref_lift_id", null);
+           HttpDelete httpDelete = new HttpDelete("http://codelearn-carpool.herokuapp.com/api/lifts/"+id);
 			try {
 	         httpclient.execute(httpDelete);
 
@@ -51,14 +51,14 @@ public class DeleteCarpoolTask extends AsyncTask<String, Void, Void> {
    	   if (dialog.isShowing()) {
               dialog.dismiss();
           }
-   	   edit.putString("pref_carpool_id", null);
+   	   edit.putString("pref_lift_id", null);
    	   edit.commit();
    	   
       }
 
       @Override
       protected void onPreExecute() {
-   	   dialog.setMessage("Deleting carpool");
+   	   dialog.setMessage("Deleting lift");
           dialog.show();
       }
   }

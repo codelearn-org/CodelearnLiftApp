@@ -6,20 +6,20 @@
     <string name="action_settings">Settings</string>
     <string name="lbl_phn">Phone number:</string>
     <string name="lbl_enter_phn">Enter phone number</string>
-    <string name="title_activity_create_carpool">CreateCarpoolActivity</string>
-    <string name="title_activity_carpool_detail">CarpoolDetailActivity</string>
+    <string name="title_activity_create_carpool">CreateLiftActivity</string>
+    <string name="title_activity_carpool_detail">LiftDetailActivity</string>
     <string name="lbl_location">Location:</string>
     <string name="lbl_enter_location">Enter home location</string>
     <string name="lbl_stime">Start from home:</string>
     <string name="lbl_etime">Start from office:</string>
-    <string name="lbl_create">Create carpool</string>
-    <string name="lbl_edit">Edit carpool</string>
-    <string name="lbl_delete">Delete carpool</string>
+    <string name="lbl_create">Create lift</string>
+    <string name="lbl_edit">Edit lift</string>
+    <string name="lbl_delete">Delete lift</string>
     <string name="lbl_skip">Skip</string>
     <string name="lbl_call">Call</string>
     <string name="lbl_message">Message</string>
-    <string name="title_activity_carpool_list">CarpoolListActivity</string>
-    <string name="title_activity_carpool_detail_activty">CarpoolDetailActivty</string>
+    <string name="title_activity_carpool_list">LiftListActivity</string>
+    <string name="title_activity_carpool_detail_activty">LiftDetailActivty</string>
     <string name="hello_world">Hello world!</string>
 
 </resources>
